@@ -5,9 +5,9 @@ import {Checkbox,Select,MenuItem} from '@material-ui/core'
 const empList = [
 
 
-  {date: "20/10/2020", week: "20", class: "12A1", block: "1",  time: "08:00 - 09:00", monday: "Math", tuesday: "Lit", wednesday: "Chem", thursday: "Infor", friday: "edu", saturday: "none", year: "2020-2021" },
-  {date: "18/09/2019",week: "21",class: "11A1", block: "1",  time: "08:00 - 09:00", monday: "Math", tuesday: "Lit", wednesday: "Chem", thursday: "Infor", friday: "edu", saturday: "none", year: "2019-2020" },
-  {date: "08/01/2021", week: "19",class: "10A1", block: "1",  time: "08:00 - 09:00", monday: "Math", tuesday: "Lit", wednesday: "Chem", thursday: "Infor", friday: "edu", saturday: "none", year: "2021-2022" },
+  {date: "20/10/2020", week: "20",  block: "1",  time: "08:00 - 09:00", monday: "Math", tuesday: "Lit", wednesday: "Chem", thursday: "Infor", friday: "edu", saturday: "none", year: "2020-2021" },
+  {date: "18/09/2019",week: "21", block: "1",  time: "08:00 - 09:00", monday: "Math", tuesday: "Lit", wednesday: "Chem", thursday: "Infor", friday: "edu", saturday: "none", year: "2019-2020" },
+  {date: "08/01/2021", week: "19", block: "1",  time: "08:00 - 09:00", monday: "Math", tuesday: "Lit", wednesday: "Chem", thursday: "Infor", friday: "edu", saturday: "none", year: "2021-2022" },
   
 
 
@@ -20,7 +20,7 @@ function App() {
   const columns = [
     {title: "Week", field: "week"},
     {title: "Date", field: "date"},
-    { title: "Class", field: "class" },
+   
     { title: "Block", field: "block" },
     { title: "Time", field: "time" },
     { title: "Monday", field: "monday" },
@@ -42,7 +42,7 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
   return (
     <div className="App">
       <h1 align="center"></h1>
-      <h4 align='center'>Teacher Time Table</h4>
+      <h4 align='center'>Time table class for head teacher</h4>
       
       
       <MaterialTable
