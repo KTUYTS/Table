@@ -5,11 +5,21 @@ import {Checkbox,Select,MenuItem} from '@material-ui/core'
 const empList = [
 
 
-  {date: "20/10/2020", week: "20",  block: "1",  time: "08:00 - 09:00", monday: "Math", tuesday: "Lit", wednesday: "Chem", thursday: "Infor", friday: "edu", saturday: "none", year: "2020-2021" },
-  {date: "18/09/2019",week: "21", block: "1",  time: "08:00 - 09:00", monday: "Math", tuesday: "Lit", wednesday: "Chem", thursday: "Infor", friday: "edu", saturday: "none", year: "2019-2020" },
-  {date: "08/01/2021", week: "19", block: "1",  time: "08:00 - 09:00", monday: "Math", tuesday: "Lit", wednesday: "Chem", thursday: "Infor", friday: "edu", saturday: "none", year: "2021-2022" },
+  {fullname: "Nguyen Van Cong", sbTeach: "Math", phoneNo: "0123456789",  email: "NguyenVanCong@gmail.com", year: "2019-2020" },
+  {fullname: "Le Thi Luyen", sbTeach: "Lit", phoneNo: "012xxxxxxx",  email: "LeThiLuyen@gmail.com" , year: "2019-2020"},
+  {fullname: "Le Thi Kim Dung", sbTeach: "Chem", phoneNo: "012yyyyyy",  email: "LeThiKimDung@gmail.com", year: "2019-2020" },
+  
+  {fullname: "Nguyen Van Cong", sbTeach: "Math", phoneNo: "0123456789",  email: "NguyenVanCong@gmail.com", year: "2020-2021" },
+  {fullname: "Le Thi Luyen", sbTeach: "Lit", phoneNo: "012xxxxxxx",  email: "LeThiLuyen@gmail.com" , year: "2020-2021"},
+  {fullname: "Le Thi Kim Dung", sbTeach: "Chem", phoneNo: "012yyyyyy",  email: "LeThiKimDung@gmail.com", year: "2020-2021" },
+  {fullname: "Le Quoc Cuong", sbTeach: "Edu", phoneNo: "012yzzzzzy",  email: "LeQuocCuong@gmail.com", year: "2020-2021" },
+  {fullname: "Pham Toan Thang", sbTeach: "Edu", phoneNo: "012ygggggy",  email: "PhamToanThang@gmail.com", year: "2020-2021" },
+
+
   
 
+  
+  
 
 ]
 
@@ -18,17 +28,12 @@ function App() {
  const [filter, setFilter]=useState(true)
  const [year,setYear]=useState('all')
   const columns = [
-    {title: "Week", field: "week"},
-    {title: "Date", field: "date"},
+    {title: "Full Name", field: "fullname"},
+    {title: "Subject Teching", field: "sbTeach"},
+
+    {title: "Phone Number", field: "phoneNo"},
    
-    { title: "Block", field: "block" },
-    { title: "Time", field: "time" },
-    { title: "Monday", field: "monday" },
-    { title: "Tuesday", field: "tuesday" }, 
-    { title: "Wednesday", field: 'wednesday' },
-    { title: "Thursday", field: 'thursday' },
-    { title: "Friday", field: "friday" },
-    { title: "Saturday", field: "saturday" },
+    { title: "Email", field: "email" },
     
   ]
   const handleChange=()=>{
@@ -42,7 +47,7 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
   return (
     <div className="App">
       <h1 align="center"></h1>
-      <h4 align='center'>Time table class for head teacher</h4>
+      <h4 align='center'>Teacher List</h4>
       
       
       <MaterialTable
