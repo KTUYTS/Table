@@ -2,45 +2,62 @@ import React, { useState,useEffect } from 'react';
 import './App.css';
 import MaterialTable from 'material-table'
 import {Checkbox,Select,MenuItem} from '@material-ui/core'
-const empList = [
 
 
-  { class: "12A1", block: "1", week: "2", time: "08:00 - 09:00", monday: "Math", tuesday: "Lit", wednesday: "Chem", thursday: "Infor", friday: "edu", saturday: "none", year: "2020-2021" },
-  { class: "11A1", block: "1", week: "2", time: "08:00 - 09:00", monday: "Math", tuesday: "Lit", wednesday: "Chem", thursday: "Infor", friday: "edu", saturday: "none", year: "2019-2020" },
-  { class: "10A1", block: "1", week: "2", time: "08:00 - 09:00", monday: "Math", tuesday: "Lit", wednesday: "Chem", thursday: "Infor", friday: "edu", saturday: "none", year: "2021-2022" },
-  
+const timeTable = [
 
+
+  {
+    fromWeek: 1,
+    toWeek: -1,
+    weekDay: 1,
+    time: "10:30",
+  },
+  {
+    fromWeek: 1,
+    toWeek: -1,
+    weekDay: 2,
+    time: "8:30",
+  },
+  {
+    fromWeek: 1,
+    toWeek: -1,
+    weekDay: 2,
+    time: "9:30",
+  },
+  {
+    fromWeek: 1,
+    toWeek: -1,
+    weekDay: 4,
+    time: "7:30",
+  },
 
 ]
 
-function App() {
-  const [filteredData,setFilteredData]=useState(empList)
+function TimeTable() {
+  const [filteredData,setFilteredData]=useState(timeTable)
  const [filter, setFilter]=useState(true)
  const [year,setYear]=useState('all')
   const columns = [
-    { title: "Class", field: "class" },
-    { title: "Block", field: "block" },
-    { title: "Time", field: "time" },
-    { title: "Monday", field: "monday" },
-    { title: "Tuesday", field: "tuesday" }, 
-    { title: "Wednesday", field: 'wednesday' },
-    { title: "Thursday", field: 'thursday' },
-    { title: "Friday", field: "friday" },
-    { title: "Saturday", field: "saturday" },
+   
+    { title: "fromWeek", field: "fromWeek" },
+    { title: "toWeek", field: "toWeek" },
+    { title: "weekDay", field: "weekDay" },
+    { title: "time", field: "time" }, 
     
   ]
   const handleChange=()=>{
    setFilter(!filter)
   }
   useEffect(()=>{
-setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
+setFilteredData(year==='all'?timeTable:timeTable.filter(dt=>dt.year===year))
 
   },[year])
 
   return (
     <div className="App">
       <h1 align="center"></h1>
-      <h4 align='center'>Time Table Full School</h4>
+      <h4 align='center'>Time Table</h4>
       
       
       <MaterialTable
@@ -92,4 +109,4 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
   );
 }
 
-export default App;
+export default TimeTable;
