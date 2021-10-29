@@ -2,38 +2,53 @@ import React, { useState,useEffect } from 'react';
 import './App.css';
 import MaterialTable from 'material-table'
 import {Checkbox,Select,MenuItem} from '@material-ui/core'
-const empList = [
 
 
-  { week: "12", class: "12A1", grade: "80", year: "2019-2020" },
-  { week: "10", class: "12A1", grade: "90" , year: "2020-2021"},
-  { week: "11", class: "12A1", grade: "100",  year: "2019-2020" },
-  { week: "12", class: "10A1", grade: "70",  year: "2020-2021"},
-  { week: "10", class: "10A1", grade: "60", year: "2019-2020" },
-  { week: "11", class: "10A1", grade: "80", year: "2019-2020" },
-  { week: "9", class: "12A1", grade: "96",  year: "2019-2020" },,
-  { week: "12", class: "11A1", grade: "50", year: "2019-2020" },
-  { week: "10", class: "11A1", grade: "100",  year: "2020-2021" },
-  { week: "11", class: "11A1", grade: "90",  year: "2020-2021" },
-  { week: "12", class: "10A2", grade: "80", year: "2019-2020" },
-  { week: "10", class: "10A2", grade: "75",  year: "2020-2021"},
-  { week: "11", class: "10A2", grade: "65",  year: "2020-2021" },
-  { week: "9", class: "10A2", grade: "45", year: "2019-2020" },
+const rankingbyweek = [
 
 
+  {
+    className: "SE19",
+    academicYear: "2019-2020",
+    headTeacherName: "Cao Tien Dung",
+    week: 4,
+    grade: 10 ,
+
+  },
+
+  {
+    className: "SE19",
+    academicYear: "2019-2020",
+    headTeacherName: "Cao Tien Dung",
+    week: 3,
+    grade: 10 ,
+
+  },
+
+  {
+    className: "SE20",
+    academicYear: "2020-2021",
+    headTeacherName: "Cao Tien Dung",
+    week: 5,
+    grade: 9 ,
+
+  },
+ 
 
 ]
 
-function App() {
-  const [filteredData,setFilteredData]=useState(empList)
+function RankingByWeek() {
+  const [filteredData,setFilteredData]=useState(rankingbyweek)
  const [filter, setFilter]=useState(true)
  const [year,setYear]=useState('all')
   const columns = [
-    { title: "Week", field: "week" },
-    
-    { title: "Class", field: "class" },
-    { title: "Grade", field: "grade" },
-    
+   
+   
+    { title: "className", field: "className" },
+    { title: "academicYear", field: "academicYear" },
+    { title: "headTeacherName", field: "headTeacherName" }, 
+    { title: "week", field: "week" },
+    { title: "grade", field: "grade" }, 
     
     
   ]
@@ -41,14 +56,14 @@ function App() {
    setFilter(!filter)
   }
   useEffect(()=>{
-setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
+setFilteredData(year==='all'?rankingbyweek:rankingbyweek.filter(dt=>dt.year===year))
 
   },[year])
 
   return (
     <div className="App">
-      <h1 align="center"></h1>
-      <h4 align='center'>Ranking Table</h4>
+      
+      <h4 align='center'>Ranking By Week</h4>
       
       
       <MaterialTable
@@ -100,4 +115,4 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
   );
 }
 
-export default App;
+export default RankingByWeek;
