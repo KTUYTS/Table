@@ -2,51 +2,59 @@ import React, { useState,useEffect } from 'react';
 import './App.css';
 import MaterialTable from 'material-table'
 import {Checkbox,Select,MenuItem} from '@material-ui/core'
-const empList = [
 
 
-  {fullname: "Nguyen Van Cong", sbTeach: "Math", phoneNo: "0123456789",  email: "NguyenVanCong@gmail.com", year: "2019-2020" },
-  {fullname: "Le Thi Luyen", sbTeach: "Lit", phoneNo: "012xxxxxxx",  email: "LeThiLuyen@gmail.com" , year: "2019-2020"},
-  {fullname: "Le Thi Kim Dung", sbTeach: "Chem", phoneNo: "012yyyyyy",  email: "LeThiKimDung@gmail.com", year: "2019-2020" },
-  
-  {fullname: "Nguyen Van Cong", sbTeach: "Math", phoneNo: "0123456789",  email: "NguyenVanCong@gmail.com", year: "2020-2021" },
-  {fullname: "Le Thi Luyen", sbTeach: "Lit", phoneNo: "012xxxxxxx",  email: "LeThiLuyen@gmail.com" , year: "2020-2021"},
-  {fullname: "Le Thi Kim Dung", sbTeach: "Chem", phoneNo: "012yyyyyy",  email: "LeThiKimDung@gmail.com", year: "2020-2021" },
-  {fullname: "Le Quoc Cuong", sbTeach: "Edu", phoneNo: "012yzzzzzy",  email: "LeQuocCuong@gmail.com", year: "2020-2021" },
-  {fullname: "Pham Toan Thang", sbTeach: "Edu", phoneNo: "012ygggggy",  email: "PhamToanThang@gmail.com", year: "2020-2021" },
+const teacherList = [
 
 
-  
+  {
+    id: "11111",
+    name: "Cao Tien Dung",
 
-  
-  
+  },
 
+  {
+    id: "22222",
+    name: "Tran Vu Khanh",
+
+  },
+ 
+  {
+    id: "33333",
+    name: "Tran Anh Tuan",
+
+  },
+ 
+  {
+    id: "44444",
+    name: "Tran Hoai Nam",
+
+  },
+ 
 ]
 
-function App() {
-  const [filteredData,setFilteredData]=useState(empList)
+function TeacherList() {
+  const [filteredData,setFilteredData]=useState(teacherList)
  const [filter, setFilter]=useState(true)
  const [year,setYear]=useState('all')
   const columns = [
-    {title: "Full Name", field: "fullname"},
-    {title: "Subject Teching", field: "sbTeach"},
-
-    {title: "Phone Number", field: "phoneNo"},
    
-    { title: "Email", field: "email" },
+    { title: "id", field: "id" },
+    { title: "name", field: "name" },
+ 
     
   ]
   const handleChange=()=>{
    setFilter(!filter)
   }
   useEffect(()=>{
-setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
+setFilteredData(year==='all'?teacherList:teacherList.filter(dt=>dt.year===year))
 
   },[year])
 
   return (
     <div className="App">
-      <h1 align="center"></h1>
+      
       <h4 align='center'>Teacher List</h4>
       
       
@@ -99,4 +107,4 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
   );
 }
 
-export default App;
+export default TeacherList;
