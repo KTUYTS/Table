@@ -4,60 +4,63 @@ import MaterialTable from 'material-table'
 import {Checkbox,Select,MenuItem} from '@material-ui/core'
 
 
-const timeTable = [
+const ranking = [
 
 
   {
-    fromWeek: 1,
-    toWeek: -1,
-    weekDay: 1,
-    time: "10:30",
+    className: "SE19",
+    academicYear: "2019-2020",
+    headTeacherName: "Cao Tien Dung",
+    week: 4,
+    grade: 10 ,
+
   },
+
   {
-    fromWeek: 1,
-    toWeek: -1,
-    weekDay: 2,
-    time: "8:30",
+    className: "SE19",
+    academicYear: "2019-2020",
+    headTeacherName: "Cao Tien Dung",
+    grade: 10 ,
+
   },
+
   {
-    fromWeek: 1,
-    toWeek: -1,
-    weekDay: 2,
-    time: "9:30",
+    className: "SE20",
+    academicYear: "2020-2021",
+    headTeacherName: "Cao Tien Dung",
+    grade: 9 ,
+
   },
-  {
-    fromWeek: 1,
-    toWeek: -1,
-    weekDay: 4,
-    time: "7:30",
-  },
+ 
 
 ]
 
-function TimeTable() {
-  const [filteredData,setFilteredData]=useState(timeTable)
+function Ranking() {
+  const [filteredData,setFilteredData]=useState(ranking)
  const [filter, setFilter]=useState(true)
  const [year,setYear]=useState('all')
   const columns = [
    
-    { title: "fromWeek", field: "fromWeek" },
-    { title: "toWeek", field: "toWeek" },
-    { title: "weekDay", field: "weekDay" },
-    { title: "time", field: "time" }, 
+   
+    { title: "className", field: "className" },
+    { title: "academicYear", field: "academicYear" },
+    { title: "headTeacherName", field: "headTeacherName" }, 
+    { title: "grade", field: "grade" }, 
+    
     
   ]
   const handleChange=()=>{
    setFilter(!filter)
   }
   useEffect(()=>{
-setFilteredData(year==='all'?timeTable:timeTable.filter(dt=>dt.year===year))
+setFilteredData(year==='all'?ranking:ranking.filter(dt=>dt.year===year))
 
   },[year])
 
   return (
     <div className="App">
-   
-      <h4 align='center'>Time Table</h4>
+      
+      <h4 align='center'>Ranking By Week</h4>
       
       
       <MaterialTable
@@ -109,4 +112,4 @@ setFilteredData(year==='all'?timeTable:timeTable.filter(dt=>dt.year===year))
   );
 }
 
-export default TimeTable;
+export default Ranking;
