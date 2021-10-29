@@ -15,7 +15,7 @@ const empList = [
 
 ]
 
-function App() {
+function LogBook() {
   const [filteredData,setFilteredData]=useState(empList)
  const [filter, setFilter]=useState(true)
  const [year,setYear]=useState('all')
@@ -92,4 +92,4 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
   );
 }
 
-export default App;
+export default ;
