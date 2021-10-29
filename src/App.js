@@ -42,7 +42,7 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
 
   return (
     <div className="App">
-      <h1 align="center"></h1>
+     
       <h4 align='center'>Logbook Information</h4>
       
       
@@ -92,4 +92,4 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
   );
 }
 
-export default ;
+export default LogBook;
