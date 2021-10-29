@@ -56,7 +56,7 @@ setFilteredData(year==='all'?timeTable:timeTable.filter(dt=>dt.year===year))
 
   return (
     <div className="App">
-      <h1 align="center"></h1>
+   
       <h4 align='center'>Time Table</h4>
       
       
