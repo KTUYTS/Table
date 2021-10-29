@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import './App.css';
 import MaterialTable from 'material-table'
 import {Checkbox,Select,MenuItem} from '@material-ui/core'
-const empList = [
+const logbooks = [
 
 
   {  className: "SE19", week: "2", day: 'Monday', time: "10:30:00", grade: 90, comment: "Not bad", note: "none", courseName: "Introduction to Database", lessonName: "Design Database", teacherName: "Cao Tiến Dũng", year: "2020-2021" },
@@ -16,7 +16,7 @@ const empList = [
 ]
 
 function LogBook() {
-  const [filteredData,setFilteredData]=useState(empList)
+  const [filteredData,setFilteredData]=ulogbookslogbooks)
  const [filter, setFilter]=useState(true)
  const [year,setYear]=useState('all')
   const columns = [
@@ -36,7 +36,7 @@ function LogBook() {
    setFilter(!filter)
   }
   useEffect(()=>{
-setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
+setFilteredData(year==='all'?logbooks:logbooks.filter(dt=>dt.year===year))
 
   },[year])
 
